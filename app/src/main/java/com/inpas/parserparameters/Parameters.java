@@ -18,7 +18,7 @@ public class Parameters {
 	private AccountTypePreset account;
 	private TemplatePreset templates;
 	private TerminalProfilePreset profile;
-	//private UsersGroupPreset users;
+	private UsersGroupPreset users;
 	private PossessorPreset possessors;
 	private AcquiringPreset acquiring;
 	private ConnectionsServerPreset connections;
@@ -85,6 +85,7 @@ public class Parameters {
 	public CurrencyPreset getCurrencyPreset() {
 		return cur;
 	}
+
 	public PaymentSystemPreset getPaymentSystemPreset() {
 		return paym;
 	}
@@ -109,9 +110,7 @@ public class Parameters {
 		return profile;
 	}
 	
-	//public UsersGroupPreset getUsersGroupPreset() {
-	//	return users;
-	//}
+	public UsersGroupPreset getUsersGroupPreset() {return users; }
 
 	public PossessorPreset getPossessorsPreset() {
 		return possessors;

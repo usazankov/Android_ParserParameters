@@ -78,6 +78,7 @@ jsonSchema2Pojo {
             "${project.rootDir}/parameters/jsonschemes/PossessorPreset.json",
             "${project.rootDir}/parameters/jsonschemes/AcquiringPreset.json",
             "${project.rootDir}/parameters/jsonschemes/ConnectionsServerPreset.json",
+            "${project.rootDir}/parameters/jsonschemes/UsersGroupPreset.json",
             "${project.rootDir}/parameters/jsonschemes/TerminalPreset.json"
     )
 

@@ -1,0 +1,48 @@
+{
+    "id": "UsersGroupPreset",
+    "description": "schema for UsersGroupPreset",
+    "type": "object",
+	
+    "properties":{
+		"UsersGroupPreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/UsersGroup"
+			}
+		}
+	},
+	"definitions":{
+		"UsersGroup":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"UsersGroupName": {
+					"type": "string",
+					"default": ""
+				},
+				"UsersGroupEnabledFinOperations": {
+					"type": "string",
+					"default": ""					
+				},
+				"UsersGroupEnabledServiceOperations": {
+					"type": "string",
+					"default": ""
+				},
+				"UsersGroupRole": {
+					"$ref": "#/definitions/ParamUsersGroupRole"
+				}
+			}
+		},
+		"ParamUsersGroupRole": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3, 4],
+			"javaEnumNames": [	"UserGroupRole_Unknown",
+								"UserGroupRole_Cachier",
+								"UserGroupRole_SenCachier",
+								"UserGroupRole_Admin",
+								"UserGroupRole_Root"	]
+		}
+	}
+}
