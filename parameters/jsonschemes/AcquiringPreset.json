@@ -1,0 +1,128 @@
+{
+    "id": "AcquiringPreset",
+    "description": "schema for AcquiringPreset",
+    "type": "object",
+	
+    "properties":{
+		"AcquiringPreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Acquiring"
+			}
+		}
+	},
+	"definitions":{
+		"Acquiring":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"AcquiringName": {
+					"type": "string",
+					"default": ""
+				},
+				"PaymentSystemLinks": {
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/PaymentSystemLink"
+					}
+				},
+				"CurrencyRefs": {
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/CurrencyRef"
+					}
+				},
+				"AuthorisationHosts": {
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/Host"
+					}
+				},
+				"HostTimeZone": {
+					"type": "integer"
+				},
+				"SummerTime": {
+					"$ref": "DefSwitch.json"
+				},
+				"Reports": {
+					"type": "object",
+					"properties": {
+						"ReconciliationReport":{
+							"type": "integer"
+						},
+						"KeyExchangeReport": {
+							"type": "integer"
+						},
+						"CheckLinkReport": {
+							"type": "integer"
+						}
+					}
+				},
+				"TechnicalParameters": {
+					"type": "object",
+					"properties": {
+						"ReconciliationType": {
+							"$ref": "#/definitions/ParamReconciliationType"
+						},
+						"EmptyReconciliation": {
+							"$ref": "DefSwitch.json"
+						},
+						"KeySchema": {
+							"$ref": "#/definitions/ParamKeySchema"
+						},
+						"SecureIso":{
+							"$ref": "DefSwitch.json"
+						},
+						"BatchOverflowReconciliation": {
+							"$ref": "DefSwitch.json"
+						},
+						"MaxOffline":{
+							"type": "integer"
+						},
+						"UseIssuerRefferal":{
+							"$ref": "DefSwitch.json"
+						},
+						"ResponseTimeout": {
+							"type": "integer"
+						}
+					}
+				}
+			}
+		},
+		"PaymentSystemLink": {
+			"type": "object",
+			"properties": {
+				"PaymentSystemRef": {
+					"type": "integer"
+				},
+				"AcquirerIdentifier": {
+					"type": "string"
+				}
+			}
+		},
+		"CurrencyRef": {
+			"type": "integer"
+		},
+		"Host": {
+			"type": "integer"
+		},
+		"ParamReconciliationType":{
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2],
+			"javaEnumNames": [	"ReconciliationType_0",
+								"ReconciliationType_1",
+								"ReconciliationType_Offline"]
+			
+		},
+		"ParamKeySchema":{
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1],
+			"javaEnumNames": [	"KeySchema_Stat",
+								"KeySchema_Dyn" ]
+			
+		}
+	}
+}

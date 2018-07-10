@@ -1,0 +1,42 @@
+{
+    "id": "SecurityKeyPreset",
+    "description": "schema for SecurityKeyPreset",
+    "type": "object",
+	
+    "properties":{
+		"SecurityKeyPreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/SecurityKeyTemplate"
+			}
+		}
+	},
+	"definitions":{
+		"SecurityKeyTemplate":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"Pinpad": {
+					"$ref": "DefParamPinpad.json"
+				},
+				"MKeys": {
+					"type": "array",
+					"items": {
+						 "$ref": "#/definitions/MKey"
+					}
+				}
+			}
+		},
+		"MKey":{
+			"properties": {
+				"KeyProfile": {
+					"$ref": "DefKeyProfile.json"
+				},
+				"SlotNo": {
+					"type": "integer"
+				}
+			}
+		}
+	}
+}

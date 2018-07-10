@@ -1,0 +1,42 @@
+{
+    "id": "CardProductPreset",
+    "description": "schema for CardProductPreset",
+    "type": "object",
+	
+    "properties":{
+		"CardProductPreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/CardProduct"
+			}
+		}
+	},
+	"definitions":{
+		"CardProduct":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"Name": {
+					"$ref": "DefCardProduct.json"
+				},
+				"CPName": {
+					"type": "string",
+					"default": ""
+				},
+				"PIX": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"BinRanges": {
+					"type": "array",
+					"items": {
+						 "$ref": "DefBinRange.json"
+					}
+				},
+				"ManualInput": {
+					"$ref": "DefSwitch.json"
+				}
+			}
+		}
+	}
+}

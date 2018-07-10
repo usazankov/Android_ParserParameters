@@ -1,0 +1,25 @@
+{
+    "id": "DefBinRange",
+    "description": "schema for DefBinRange",
+    "type": "object",
+    "properties":{
+		"Name":{
+			"type": "string",
+			"default": ""
+		},
+		"PanLengthStart":{
+			"type": "integer"
+		},
+		"PanLengthFinish":{
+			"type": "integer"
+		},
+		"FromBin":{
+			"type": "string",
+			"default": ""
+		},
+		"ToBin":{
+			"type": "string",
+			"default": ""
+		}
+	}
+}

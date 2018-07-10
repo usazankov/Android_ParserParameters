@@ -1,0 +1,367 @@
+{
+    "id": "TerminalPreset",
+    "description": "schema for TerminalPreset",
+    "type": "object",
+	
+    "properties":{
+		"Terminal":{
+			"type": "object",
+			"$ref": "#/definitions/Terminal"
+		}
+	},
+	"definitions":{
+		"Terminal":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"XSD_Version": {
+					"type": "string",
+					"default": ""
+				},
+				"TerminalId": {
+					"type": "string",
+					"default": ""
+				},
+				"OwnerName": {
+					"type": "string",
+					"default": ""
+				},
+				"Address": {
+					"type": "string",
+					"default": ""
+				},
+				"TerminalTimeZone": {
+					"type": "integer"
+				},
+				"SummerTime": {
+					"$ref": "DefSwitch.json"
+				},
+				"Model": {
+					"$ref": "DefDeviceModel.json"
+				},
+				"TerminalCountryCode": {
+					"type": "string",
+					"default": ""
+				},
+				"PriorLicense": {
+					"$ref": "DefLicenseType.json"
+				},
+				"UseMainMenuPassword": {
+					"$ref": "DefSwitch.json"
+				},
+				"MainMenuPassword": {
+					"type": "string",
+					"default": ""
+				},
+				"Logging":{
+					"type": "object",
+					"properties": {
+						"UploadLogsFlag": {
+							"$ref": "DefSwitch.json"
+						},
+						"LogSize": {
+							"type": "integer",
+							"default": 0
+						},
+						"LogMode": {
+							"$ref": "#/definitions/ParamLogMode"
+						}
+					}
+				},
+				"PowerSet": {
+					"$ref": "DefSwitch.json"
+				},
+				"WarningLevel": {
+					"type": "integer",
+					"default": 0
+				},
+				"BlockingLevel": {
+					"type": "integer",
+					"default": 0
+				},
+				"ShuttingLevel": {
+					"type": "integer",
+					"default": 0
+				},
+				"SerialNo": {
+					"type": "string",
+					"default": ""
+				},
+				"PossessorLinks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PossessorLink"
+					}
+				},
+				"UseLogins": {
+					"$ref": "DefSwitch.json"
+				},
+				"TypeUseLogins": {
+					"$ref": "#/definitions/ParamTypeUseLogins"
+				},
+				"AutoLogin": {
+					"$ref": "DefSwitch.json"
+				},
+				"AutoLoginUsername": {
+					"type": "integer",
+					"default": -1
+				},
+				"LogoutCase": {
+					"type": "integer",
+					"default": -1
+				},
+				"CardLoginPassword": {
+					"$ref": "DefSwitch.json"
+				},
+				"TerminalEvents":{
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/TerminalEvent"
+					}
+				},
+				"CombineFunctions":{
+					"$ref": "#/definitions/ParamCombineFunctions"
+				},
+				"ResetReceipt":{
+					"$ref": "DefSwitch.json"
+				},
+				"TransactionScheme":{
+					"$ref": "#/definitions/ParamTransactionScheme"
+				},
+				"HotKeysProfile":{
+					"type": "integer"
+				},
+				"PicturesGroupTypeSelectedTerminal":{
+					"$ref": "#/definitions/ParamPicturesGroupTypeSelectedTerminal"
+				},
+				"PicturesGroupSelectedTerminal":{
+					"type": "integer"
+				},
+				"ReportRepeat":{
+					"$ref": "DefSwitch.json"
+				},
+				"PromptPrintDecline":{
+					"$ref": "DefSwitch.json"
+				},
+				"WaitPinTimeout":{
+					"type": "integer"
+				},
+				"Description":{
+					"type": "string"
+				},
+				"TerminalVariable":{
+					"type": "string"
+				},
+				"UseEnergySaving":{
+					"$ref": "#/definitions/ParamUseEnergySaving"
+				},
+				"BackLightTimeout":{
+					"type": "integer"
+				},
+				"SleepTime":{
+					"type": "integer"
+				},
+				"HibernateTimeout":{
+					"type": "integer"
+				},
+				"ShutdownTimeout":{
+					"type": "integer"
+				},
+				"KeyboardLock":{
+					"$ref": "DefSwitch.json"
+				}
+			}
+		},
+		"ParamLogMode": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3],
+			"javaEnumNames": [	"LogMode_Unknown",
+								"LogMode_Errors",
+								"LogMode_Support",
+								"LogMode_Debug"	]
+		},
+		"PossessorLink": {
+			"type": "object",
+			"properties": {
+				"PossessorRef":{
+					"type": "integer"
+				},
+				"TerminalProfileLinks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/TerminalProfileLink"
+					}
+				}
+			}
+		},
+		"TerminalProfileLink": {
+			"type": "object",
+			"properties": {
+				"TerminalProfileRef": {
+					"type": "integer"
+				},
+				"RegisteredTerminals": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RegisteredTerminal"
+					}
+				}
+			}
+		},
+		"RegisteredTerminal": {
+			"type": "object",
+			"properties": {
+				"Anchor": {
+					"type": "integer"
+				},
+				"VirtualPOSID": {
+					"$ref": "DefPOSID.json"
+				},
+				"PosIDAddress": {
+					"type": "string"
+				},
+				"PosIDPossessorName": {
+					"type": "string"
+				},
+				"AcquiringRef":{
+					"type": "integer"
+				},
+				"KeyTemplateRef":{
+					"type": "integer"
+				},
+				"SecurityKeys":{
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/WKey"
+					}
+				}
+			}
+		},
+		"WKey":{
+			"type": "object",
+			"properties": {
+				"Anchor": {
+					"type": "integer"
+				},
+				"KeyProfile": {
+					"$ref": "#/definitions/ParamKeyProfile"
+				},
+				"KeyValue": {
+					"type": "string"
+				}
+			}
+		},
+		"ParamKeyProfile":{
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+			"javaEnumNames": [	"KeyProfile_Unknown",
+								"KeyProfile_TAK",
+								"KeyProfile_TPK",
+								"KeyProfile_TOPK",
+								"KeyProfile_TMK",
+								"KeyProfile_TPMK",
+								"KeyProfile_TOPMK",
+								"KeyProfile_TAMK",
+								"KeyProfile_KLK",
+								"KeyProfile_TDK",
+								"KeyProfile_TEK"	]
+		},
+		"ParamTypeUseLogins": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1],
+			"javaEnumNames": [	"UseLogins_UnlockTerminal",
+								"UseLogins_ExecuteOperation"	]
+		},
+		"TerminalEvent": {
+			"Anchor": {
+				"type": "integer"
+			},
+			"EventType": {
+				"$ref": "#/definitions/ParamEventType"
+			},
+			"Periodicity": {
+				"$ref": "#/definitions/ParamPeriodicity"
+			},
+			"EffectiveTime": {
+				"type":"string"
+			},
+			"ExpiryTime":{
+				"type":"string"
+			},
+			"WeekDays":{
+				"type": "object",
+				"javaType" : "java.lang.Byte"
+			},
+			"MonthDays":{
+				"type": "object",
+				"javaType" : "java.lang.Byte"
+			},
+			"EventDate":{
+				"type":"string"
+			},
+			"EventPeriod":{
+				"type":"integer"
+			}
+		},
+		"ParamEventType":{
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3, 4, 5, 6, 7],
+			"javaEnumNames": [	"EventType_NoAction",
+								"EventType_Reconciliation_And_LoadParam",
+								"EventType_Reconciliation",
+								"EventType_CheckConnection",
+								"EventType_UploadMonitoringLog",
+								"EventType_MonitoringPing",
+								"EventType_CheckMonitoringEvents",
+								"EventType_Reload_Terminal"	]
+		},
+		"ParamPeriodicity":{
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3, 4],
+			"javaEnumNames": [	"Periodicity_Day",
+								"Periodicity_Week",
+								"Periodicity_Month",
+								"Periodicity_Once",
+								"Periodicity_Timeout"]
+		},
+		"ParamTransactionScheme":{
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1],
+			"javaEnumNames": [	"TransactionScheme_Default",
+								"TransactionScheme_Alternative"	]
+		},
+		"ParamPicturesGroupTypeSelectedTerminal":{
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3, 4],
+			"javaEnumNames": [	"PictureGroupDenied",
+								"PictureGroupDefault",
+								"PictureGroupPointed",
+								"PictureGroupOrganization",
+								"PictureSingle"	]
+		},
+		"ParamUseEnergySaving":{
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2],
+			"javaEnumNames": [	"EnergySaving_NotUsed",
+								"EnergySaving_UsedAll",
+								"EnergySaving_OnlyPowerOff"]
+		},
+		"ParamCombineFunctions":{
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2],
+			"javaEnumNames": [	"ReconciliationOnly",
+								"ReconciliationAndParamLoad",
+								"ReconciliationAndLogUpload"]
+		}
+	}
+}

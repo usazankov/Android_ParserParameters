@@ -1,0 +1,151 @@
+{
+    "id": "PossessorPreset",
+    "description": "schema for PossessorPreset",
+    "type": "object",
+	
+    "properties":{
+		"PossessorPreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Possessor"
+			}
+		}
+	},
+	"definitions":{
+		"Possessor":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"Name": {
+					"type": "string",
+					"default": ""
+				},
+				"MCC": {
+					"type": "string",
+					"default": ""
+				},
+				"PossessorType": {
+					"$ref": "#/definitions/ParamPossessorType"
+				},
+				"EmvMerchantNameLocation": {
+					"type": "string",
+					"default": ""
+				},
+				"PaymentSystemRegistrations":{
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PaymentSystemRegistration"
+					}
+				},
+				"CurrencyRefs": {
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/CurrencyRef"
+					}
+				},
+				"UsersPreset": {
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/UsersPresetRegistration"
+					}
+				},
+				"SelectLanguageDialog": {
+					"$ref": "#/definitions/ParamSelectLanguageDialog"
+				},
+				"InputAdditionalDataForSale": {
+					"$ref": "DefSwitch.json"
+				},
+				"AdditionalDataDisplayName": {
+					"type": "string",
+					"default": ""
+				},
+				"AdditionalDataUsage": {
+					"$ref": "#/definitions/ParamAdditionalDataUsage"
+				},
+				"GluedReports": {
+					"type": "object",
+					"properties": {
+						"ReconciliationReport": {
+							"type": "integer"
+						},
+						"ReconciliationReportFail": {
+							"type": "integer"
+						}
+					}
+				},
+				"ReportRefs": {
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/TemplateRef"
+					}
+				},
+				"Logo": {
+					"type": "string"
+				}
+			}
+		},
+		"ParamPossessorType": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1],
+			"javaEnumNames": [	"PossessorType_Bank",
+								"PossessorType_Merchant"	]
+		},
+		"PaymentSystemRegistration": {
+			"type": "object",
+			"properties": {
+				"Anchor": {
+					"type": "integer"
+				},
+				"MerchantId": {
+					"type": "string",
+					"default": ""
+				},
+				"PaymentSystemRef": {
+					"type": "integer"
+				}
+			}
+		},
+		"CurrencyRef": {
+			"type": "integer"
+		},
+		"UsersPresetRegistration": {
+			"type": "object",
+			"properties": {
+				"Anchor": {
+					"type": "integer"
+				},
+				"UserName": {
+					"type": "string",
+					"default": ""
+				},
+				"UserPassword": {
+					"type": "string",
+					"default": ""
+				},
+				"UserGroupRef":{
+					"type": "integer"
+				}
+			}
+		},
+		"ParamSelectLanguageDialog": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2],
+			"javaEnumNames": [	"SelectLanguageDialog_Off",
+								"SelectLanguageDialog_On",
+								"SelectLanguageDialog_Optimized"	]
+		},
+		"ParamAdditionalDataUsage": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1],
+			"javaEnumNames": [	"SendToHost",
+								"ReceiptPrintOnly"	]
+		},
+		"TemplateRef": {
+			"type": "integer"
+		}
+	}
+}

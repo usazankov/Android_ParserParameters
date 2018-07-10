@@ -1,0 +1,41 @@
+{
+    "id": "AccountTypePreset",
+    "description": "schema for AccountTypePreset",
+    "type": "object",
+    "properties":{
+		"AccountTypePreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/AccountType"
+			}
+		}
+	},
+	"definitions":{
+		"AccountType":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"AccountTypeName": {
+					"type": "string",
+					"default": ""
+				},
+				"AccountTypeId": {
+					"type": "integer"
+				},
+				"EnabledOperations": {
+					"type": "array",
+					"items":{
+						"$ref": "DefOperation.json"
+					}
+				},
+				"PrefLanguages": {
+					"type": "array",
+					"items":{
+						"$ref": "PrefLanguageItem.json"
+					}
+				}
+			}
+		}
+	}
+}

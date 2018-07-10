@@ -1,0 +1,7 @@
+{
+    "id": "DefMagStrCvmCap",
+    "type": "integer",
+	"default": 0,
+    "enum": [0, 16, 32, 240],
+	"javaEnumNames": ["NoCVM","ObtainSignature", "OnlinePIN", "Unknown"]
+}

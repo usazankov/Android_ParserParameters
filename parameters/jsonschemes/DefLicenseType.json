@@ -1,0 +1,7 @@
+{
+    "id": "DefLicenseType",
+    "type": "integer",
+	"default": 0,
+    "enum": [0, 1],
+	"javaEnumNames": ["Prior_File","Prior_Sam"]
+}

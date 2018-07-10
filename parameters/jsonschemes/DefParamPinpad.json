@@ -1,0 +1,13 @@
+{
+    "id": "DefParamPinpad",
+    "type": "integer",
+	"default": 0,
+    "enum" : [	0, 
+				1, 
+				2,
+				3  ],
+	"javaEnumNames" : [	"Pinpad_Hardware",
+						"Pinpad_Virtual1",
+						"Pinpad_Virtual2",
+						"Pinpad_Virtual3"]
+}

@@ -1,0 +1,56 @@
+{
+    "id": "ConnectionsServerPreset",
+    "description": "schema for ConnectionsServerPreset",
+    "type": "object",
+	
+    "properties":{
+		"ConnectionsServerPreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/ConnectionsServer"
+			}
+		}
+	},
+	"definitions":{
+		"ConnectionsServer":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"ConnectionName": {
+					"type": "string",
+					"default": ""
+				},
+				"SSLConfigServerPortCertificatePath": {
+					"type": "string",
+					"default": ""
+				},
+				"SSLClientCertificatePath": {
+					"type": "string",
+					"default": ""
+				},
+				"SSLPrivateKeyPath": {
+					"type": "string",
+					"default": ""
+				},
+				"Address": {
+					"type": "string",
+					"default": ""
+				}
+			}
+		},
+		"ParamTemplateType": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3, 4, 5, 6, 8],
+			"javaEnumNames": [	"TemplateType_Unknown",
+								"TemplateType_FinCheques",
+								"TemplateType_Reconciliation",
+								"TemplateType_KeyChange",
+								"TemplateType_UserReports",
+								"TemplateType_LinkCheck",
+								"TemplateType_AutoReport",
+								"TemplateType_LoadParam"	]
+		}
+	}
+}

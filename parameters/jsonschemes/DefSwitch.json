@@ -1,0 +1,7 @@
+{
+    "id": "DefSwitch",
+    "type": "integer",
+	"default": 0,
+    "enum": [0, 1],
+	"javaEnumNames": ["NO","YES"]
+}

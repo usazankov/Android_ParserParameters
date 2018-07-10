@@ -1,0 +1,48 @@
+{
+    "id": "CurrencyPreset",
+    "description": "schema for CurrencyPreset",
+    "type": "object",
+	
+    "properties":{
+		"CurrencyPreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Currency"
+			}
+		}
+	},
+	"definitions":{
+		"Currency":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"Name": {
+					"type": "string",
+					"default": ""
+				},
+				"NumericCode": {
+					"type": "string",
+					"default": ""
+				},
+				"AlphabeticCode": {
+					"type": "string",
+					"default": ""
+				},
+				"MinorUnit": {
+					"type": "string",
+					"default": ""
+				},
+				"ConversionFactor": {
+					"type": "number"
+				},
+				"BinRanges": {
+					"type": "array",
+					"items": {
+						 "$ref": "DefBinRange.json"
+					}
+				}
+			}
+		}
+	}
+}

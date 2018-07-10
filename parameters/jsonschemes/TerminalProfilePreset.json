@@ -1,0 +1,297 @@
+{
+    "id": "TerminalProfilePreset",
+    "description": "schema for TerminalProfilePreset",
+    "type": "object",
+	
+    "properties":{
+		"TerminalProfilePreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/TerminalProfile"
+			}
+		}
+	},
+	"definitions":{
+		"TerminalProfile":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"Name": {
+					"type": "string",
+					"default": ""
+				},
+				"TerminalType": {
+					"$ref": "#/definitions/ParamTerminalType" 
+				},
+				"CardProductRules": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CardProductRule"
+					}
+				},
+				"VisualCheck": {
+					"$ref": "#/definitions/ParamVisualCheck"
+				},
+				"ForceOnline": {
+					"$ref": "DefSwitch.json"
+				},
+				"MotoOperations": {
+					"type": "array",
+					"items":{
+						"$ref": "DefOperation.json"
+					}
+				},
+				"MidleReceiptRefs": {
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/TemplateRef"
+					}
+				},
+				"FinalReceiptRefs": {
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/TemplateRef"
+					}
+				},
+				"ReportRefs": {
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/TemplateRef"
+					}
+				},
+				"EmvTerminalCapabilities": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CvmCapability_NoCvmRequired":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"EmvAdditionalTerminalCapabilities":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"BypassPIN": {
+					"$ref": "DefSwitch.json"
+				},
+				"UseDirectCancel": {
+					"$ref": "DefSwitch.json"
+				},
+				"UseManualEnter": {
+					"$ref": "DefSwitch.json"
+				},
+				"UseSoundNotAproved": {
+					"$ref": "DefSwitch.json"
+				},
+				"UseSoundRemoveCard": {
+					"$ref": "DefSwitch.json"
+				},
+				"AutoReversalAlert": {
+					"$ref": "DefSwitch.json"
+				},
+				"MaxOperationsInBatch": {
+					"type": "integer"
+				},
+				"HotlinePhoneMessage": {
+					"default": "",
+					"type": "string"
+				},
+				"UnableToGoOnlineCase": {
+					"$ref": "#/definitions/ParamUnableToGoOnlineCase"
+				},
+				"EmvThresholdValue": {
+					"javaType" : "java.math.BigInteger"
+				},
+				"EmvTargetPercentage": {
+					"type": "integer"
+				},
+				"EmvMaximumTargetPercentage": {
+					"type": "integer"
+				},
+				"CardHolderConfirmAmount": {
+					"$ref": "DefSwitch.json"
+				}
+			}
+		},
+		"ParamTerminalType": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3, 4],
+			"javaEnumNames": [	"TerminalType_Unknown",
+								"TerminalType_POS",
+								"TerminalType_BBT",
+								"TerminalType_QUASI",
+								"TerminalType_CAT"	]
+		},
+		"CardProductRule": {
+			"type": "object",
+			"properties":{
+				"CardProductRef": {
+					"type": "integer"
+				},
+				"CardTechnology": {
+					"$ref": "DefCardTechnology.json"
+				},
+				"EMVAppSelectIndicator": {
+					"$ref": "DefSwitch.json"
+				},
+				"EnabledOperations": {
+					"type": "array",
+					"items":{
+						"$ref": "DefOperation.json"
+					}
+				},
+				"TransactionLimit": {
+					"javaType" : "java.math.BigInteger"
+				},
+				"TransactionLimitForRefund": {
+					"javaType" : "java.math.BigInteger"
+				},
+				"OnDeviceTransactionLimit": {
+					"javaType" : "java.math.BigInteger"
+				},
+				"FloorLimitDomestic": {
+					"javaType" : "java.math.BigInteger"
+				},
+				"FloorLimitInternational": {
+					"javaType" : "java.math.BigInteger"
+				},
+				"MagCVMs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MagCVM"
+					}
+				},
+				"ChipCVM": {
+					"type": "object",
+					"properties":{
+						"UseChipCVM":{
+							"$ref": "DefSwitch.json"
+						},
+						"ChipCVMAmount": {
+							"javaType" : "java.math.BigInteger"
+						},
+						"EmvTerminalCapabilities": {
+							"javaType" : "com.inpas.types.HexString"
+						},
+						"EmvAdditionalTerminalCapabilities":{
+							"javaType" : "com.inpas.types.HexString"
+						}
+					}
+				},
+				"CvmLimit":{
+					"javaType" : "java.math.BigInteger"
+				},
+				"TransactionSchema":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CtlssMCKernelConfig":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CtlssMirTPMCaps":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CtlssMirDataExchTagList":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"AdditionalData":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"EmvTerminalCapabilities":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CvmCapability_NoCvmRequired":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"MagStrCvmCapability_NoCvmRequired": {
+					"$ref": "DefMagStrCvmCap.json"
+				},
+				"MagStrCvmCapability_CvmRequired": {
+					"$ref": "DefMagStrCvmCap.json"
+				},
+				"EmvAdditionalTerminalCapabilities": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CtlssVisaTransactionQualifiers": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CtlssCupTransactionQualifiers": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"TerminalInterchangeProfile": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CombinationOptions": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"TAC_Denial": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"TAC_Online": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"TAC_Default": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CtlssMCForceMagstripe":{
+					"$ref": "DefSwitch.json"
+				},
+				"CtlssPPassMagstripeVersion":{
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"SkipCheckExpDate": {
+					"$ref": "DefSwitch.json"
+				},
+				"AllowFallback": {
+					"$ref": "DefSwitch.json"
+				}
+			}
+		},
+		"MagCVM": {
+		"type": "object",
+		"properties":{
+				"Anchor": {
+						"type": "integer"
+				},
+				"MagCVM_Operations": {
+					"type": "array",
+					"items":{
+						"$ref": "DefOperation.json"
+					}
+				},
+				"MagCVM_Metods": {
+					"$ref": "#/definitions/ParamMagCVM_Metods"
+				},
+				"MagCVMAmount": {
+					"javaType" : "java.math.BigInteger"
+				}
+			}
+		},
+		"ParamMagCVM_Metods": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3, 4, 5, 6, 7],
+			"javaEnumNames": [	"MagCVM_Unknown",
+								"MagCVM_ServiceCode",
+								"MagCVM_PinOrSign",
+								"MagCVM_Pin",
+								"MagCVM_Sign",
+								"MagCVM_No",
+								"MagCVM_PinByCashier",
+								"MagCVM_TotalIds"	]
+		},
+		"ParamVisualCheck": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1],
+			"javaEnumNames": ["VisualCheck_4_Last_Digits", "VisualCheck_Disabled"]
+		},
+		"TemplateRef": {
+			"type": "integer"
+		},
+		"ParamUnableToGoOnlineCase": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2],
+			"javaEnumNames": ["UnableToGoOnline_ApproveDisabled", "UnableToGoOnline_MenuCase", "UnableToGoOnline_Standart"]
+		}
+	}
+}

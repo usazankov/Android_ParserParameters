@@ -1,0 +1,13 @@
+{
+	"id": "DefCardTechnology",
+	"type": "integer",
+	"default": 3,
+	"enum" : [	1, 
+				2,
+				3,
+				4	],
+	"javaEnumNames" : [	"CardTechnology_Magnetic",
+						"CardTechnology_Contact",
+						"CardTechnology_MagneticAndContact",
+						"CardTechnology_Contactless" ]
+}

@@ -1,0 +1,17 @@
+{
+	"id": "DefDeviceModel",
+	"type": "integer",
+	"default": 0,
+	"enum" : [	0, 
+				1, 
+				2,
+				3,
+				4,
+				5 ],
+	"javaEnumNames" : [	"DefDeviceModel_Unknown",
+						"DefDeviceModel_A60",
+						"DefDeviceModel_A80",
+						"DefDeviceModel_A910",
+						"DefDeviceModel_A920",
+						"DefDeviceModel_A930"	]
+}

@@ -1,0 +1,47 @@
+{
+    "id": "TemplatePreset",
+    "description": "schema for TemplatePreset",
+    "type": "object",
+	
+    "properties":{
+		"TemplatePreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Template"
+			}
+		}
+	},
+	"definitions":{
+		"Template":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"TemplateName": {
+					"type": "string",
+					"default": ""
+				},
+				"TemplateType": {
+					"$ref": "#/definitions/ParamTemplateType" 
+				},
+				"TemplateBody": {
+					"type": "string",
+					"default": ""
+				}
+			}
+		},
+		"ParamTemplateType": {
+			"type": "integer",
+			"default": 0,
+			"enum": [0, 1, 2, 3, 4, 5, 6, 8],
+			"javaEnumNames": [	"TemplateType_Unknown",
+								"TemplateType_FinCheques",
+								"TemplateType_Reconciliation",
+								"TemplateType_KeyChange",
+								"TemplateType_UserReports",
+								"TemplateType_LinkCheck",
+								"TemplateType_AutoReport",
+								"TemplateType_LoadParam"	]
+		}
+	}
+}

@@ -1,0 +1,106 @@
+{
+    "id": "PaymentSystemPreset",
+    "description": "schema for PaymentSystemPreset",
+    "type": "object",
+	
+    "properties":{
+		"PaymentSystemPreset":{
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/PaymentSystem"
+			}
+		}
+	},
+	"definitions":{
+		"PaymentSystem":{
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"PName": {
+					"type": "string",
+					"default": ""
+				},
+				"Name": {
+					"$ref": "DefPaymentSystem.json"
+				},
+				"NameQ": {
+					"$ref": "DefPaymentSystem.json"
+				},
+				"HotListPath": {
+					"type": "string",
+					"default": ""
+				},
+				"RID": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"EmvTDOL": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"EmvDDOL": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"EmvCAPKs":{
+					"type": "array",
+					"items":{
+						"$ref": "#/definitions/EmvCAPK" 
+					}
+				},
+				"ReferralCallCenter": {
+					"type": "string",
+					"default": ""
+				}
+			}
+		},
+		"EmvCAPK":{
+			"type": "object",
+			"properties":{
+				"Anchor": {
+					"type": "integer"
+				},
+				"Index": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"Length": {
+					"type" : "integer"
+				},
+				"Exponent": {
+					"$ref": "#/definitions/ParamExponentType" 
+				},
+				"Module": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"CheckValue": {
+					"javaType" : "com.inpas.types.HexString"
+				},
+				"ExpiryDate":{
+					"type": "string",
+					"default": ""
+				},
+				"RevocationSertificates": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ParamRevocationSertificate"
+					}
+				}
+			}
+		},
+		"ParamExponentType": {
+			"type": "integer",
+			"default": 1,
+			"enum": [1, 2],
+			"javaEnumNames": ["ExponentType_3","ExponentType_2_16_1"]
+		},
+		"ParamRevocationSertificate": {
+			"type": "object",
+			"properties":{
+				"Anchor":{
+					"type": "integer"
+				},
+				"SertSerialNumber": {
+					"javaType" : "com.inpas.types.HexString"
+				}
+			}
+		}
+	}
+}

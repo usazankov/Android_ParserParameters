@@ -1,0 +1,12 @@
+{
+	"id": "DefOperation",
+	"type": "integer",
+	"default": 0,
+	"enum" : [	0, 
+				1, 
+				2 ],
+	"javaEnumNames" : [	"TypeOper_Unknown",
+						"TypeOper_Sale",
+						"TypeOper_Refund",
+						"TypeOper_Cancel" ]
+}
