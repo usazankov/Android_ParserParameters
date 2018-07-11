@@ -61,13 +61,16 @@
 					}
 				},
 				"EmvTerminalCapabilities": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CvmCapability_NoCvmRequired":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"EmvAdditionalTerminalCapabilities":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"BypassPIN": {
 					"$ref": "DefSwitch.json"
@@ -98,7 +101,8 @@
 					"$ref": "#/definitions/ParamUnableToGoOnlineCase"
 				},
 				"EmvThresholdValue": {
-					"javaType" : "java.math.BigInteger"
+					"type" : "object",
+					"existingJavaType" : "java.math.BigInteger"
 				},
 				"EmvTargetPercentage": {
 					"type": "integer"
@@ -140,19 +144,24 @@
 					}
 				},
 				"TransactionLimit": {
-					"javaType" : "java.math.BigInteger"
+					"type" : "object",
+					"existingJavaType" : "java.math.BigInteger"
 				},
 				"TransactionLimitForRefund": {
-					"javaType" : "java.math.BigInteger"
+					"type" : "object",
+					"existingJavaType" : "java.math.BigInteger"
 				},
 				"OnDeviceTransactionLimit": {
-					"javaType" : "java.math.BigInteger"
+					"type" : "object",
+					"existingJavaType" : "java.math.BigInteger"
 				},
 				"FloorLimitDomestic": {
-					"javaType" : "java.math.BigInteger"
+					"type" : "object",
+					"existingJavaType" : "java.math.BigInteger"
 				},
 				"FloorLimitInternational": {
-					"javaType" : "java.math.BigInteger"
+					"type" : "object",
+					"existingJavaType" : "java.math.BigInteger"
 				},
 				"MagCVMs": {
 					"type": "array",
@@ -167,39 +176,50 @@
 							"$ref": "DefSwitch.json"
 						},
 						"ChipCVMAmount": {
-							"javaType" : "java.math.BigInteger"
+							"type" : "object",
+							"existingJavaType" : "java.math.BigInteger"
 						},
 						"EmvTerminalCapabilities": {
-							"javaType" : "com.inpas.types.HexString"
+							"type" : "object",
+							"existingJavaType" : "com.inpas.types.HexString"
 						},
 						"EmvAdditionalTerminalCapabilities":{
-							"javaType" : "com.inpas.types.HexString"
+							"type" : "object",
+							"existingJavaType" : "com.inpas.types.HexString"
 						}
 					}
 				},
 				"CvmLimit":{
-					"javaType" : "java.math.BigInteger"
+					"type" : "object",
+					"existingJavaType" : "java.math.BigInteger"
 				},
 				"TransactionSchema":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CtlssMCKernelConfig":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CtlssMirTPMCaps":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CtlssMirDataExchTagList":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"AdditionalData":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"EmvTerminalCapabilities":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CvmCapability_NoCvmRequired":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"MagStrCvmCapability_NoCvmRequired": {
 					"$ref": "DefMagStrCvmCap.json"
@@ -208,34 +228,43 @@
 					"$ref": "DefMagStrCvmCap.json"
 				},
 				"EmvAdditionalTerminalCapabilities": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CtlssVisaTransactionQualifiers": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CtlssCupTransactionQualifiers": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"TerminalInterchangeProfile": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CombinationOptions": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"TAC_Denial": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"TAC_Online": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"TAC_Default": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CtlssMCForceMagstripe":{
 					"$ref": "DefSwitch.json"
 				},
 				"CtlssPPassMagstripeVersion":{
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"SkipCheckExpDate": {
 					"$ref": "DefSwitch.json"
@@ -261,7 +290,8 @@
 					"$ref": "#/definitions/ParamMagCVM_Metods"
 				},
 				"MagCVMAmount": {
-					"javaType" : "java.math.BigInteger"
+					"type" : "object",
+					"existingJavaType" : "java.math.BigInteger"
 				}
 			}
 		},

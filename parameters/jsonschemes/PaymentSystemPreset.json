@@ -32,13 +32,16 @@
 					"default": ""
 				},
 				"RID": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"EmvTDOL": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"EmvDDOL": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"EmvCAPKs":{
 					"type": "array",
@@ -59,7 +62,8 @@
 					"type": "integer"
 				},
 				"Index": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"Length": {
 					"type" : "integer"
@@ -68,10 +72,12 @@
 					"$ref": "#/definitions/ParamExponentType" 
 				},
 				"Module": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"CheckValue": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				},
 				"ExpiryDate":{
 					"type": "string",
@@ -98,7 +104,8 @@
 					"type": "integer"
 				},
 				"SertSerialNumber": {
-					"javaType" : "com.inpas.types.HexString"
+					"type" : "object",
+					"existingJavaType" : "com.inpas.types.HexString"
 				}
 			}
 		}
