@@ -1,5 +1,11 @@
 package com.inpas.parserparameters;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,9 +42,23 @@ public class Parameters {
 	public void readParameters() throws Exception{
 		for (Map.Entry<File, Class<?>> entry : fileClass.entrySet()) {
 		    File file = entry.getKey();
+		    if(!file.exists()){
+		        continue;
+            }
 		    Class<?> c = entry.getValue();
-		    byte[] data;
-		    data = Files.readAllBytes(Paths.get(file.getAbsolutePath()));
+			byte[] data = new byte[(int)file.length()];
+			try {
+				BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
+				buf.read(data, 0, data.length);
+				buf.close();
+			}
+			catch (FileNotFoundException e) {
+				e.printStackTrace();
+				continue;
+			}catch (IOException e) {
+				e.printStackTrace();
+				continue;
+			}
 		    if(c == CurrencyPreset.class) {
 		    	cur = parser.parse(data, CurrencyPreset.class);
 		    }else if(c == PaymentSystemPreset.class) {
@@ -53,8 +73,8 @@ public class Parameters {
 		    	templates = parser.parse(data, TemplatePreset.class);
 		    }else if(c == TerminalProfilePreset.class) {
 		    	profile = parser.parse(data, TerminalProfilePreset.class);
-		    //}else if(c == UsersGroupPreset.class) {
-		    //	users = parser.parse(data, UsersGroupPreset.class);
+		    }else if(c == UsersGroupPreset.class) {
+		    	users = parser.parse(data, UsersGroupPreset.class);
 		    }else if(c == PossessorPreset.class) {
 		    	possessors = parser.parse(data, PossessorPreset.class);
 		    }else if(c == AcquiringPreset.class) {
@@ -63,7 +83,9 @@ public class Parameters {
 		    	connections = parser.parse(data, ConnectionsServerPreset.class);
 		    }else if(c == TerminalPreset.class) {
 		    	term = parser.parse(data, TerminalPreset.class);
-		    }
+		    }else{
+			    throw new RuntimeException("Ошибка парсинга файла " + file.getName() + " - класс с именем " + c.getName() + " не обрабатывается");
+            }
 		}
 	}
 	
