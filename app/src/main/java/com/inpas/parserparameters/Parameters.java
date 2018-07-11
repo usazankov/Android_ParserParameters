@@ -1,4 +1,6 @@
 package com.inpas.parserparameters;
+import android.util.Log;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -40,12 +42,20 @@ public class Parameters {
 	}
 	
 	public void readParameters() throws Exception{
+	    if( fileClass == null || fileClass.isEmpty()){
+            Log.d(MainActivity.logTag, "Не задана таблица File-ClassName");
+            return;
+        }
+        if( parser == null){
+            Log.d(MainActivity.logTag, "Не задан парсер параметров");
+        }
 		for (Map.Entry<File, Class<?>> entry : fileClass.entrySet()) {
 		    File file = entry.getKey();
+            Class<?> c = entry.getValue();
 		    if(!file.exists()){
+                Log.d(MainActivity.logTag, "Файла " + file.getAbsolutePath() + " не существует, объект класса " + c.getName() + " не будет создан");
 		        continue;
             }
-		    Class<?> c = entry.getValue();
 			byte[] data = new byte[(int)file.length()];
 			try {
 				BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
@@ -84,7 +94,7 @@ public class Parameters {
 		    }else if(c == TerminalPreset.class) {
 		    	term = parser.parse(data, TerminalPreset.class);
 		    }else{
-			    throw new RuntimeException("Ошибка парсинга файла " + file.getName() + " - класс с именем " + c.getName() + " не обрабатывается");
+                Log.d(MainActivity.logTag,"Ошибка парсинга файла " + file.getName() + " - класс с именем " + c.getName() + " не обрабатывается");
             }
 		}
 	}
@@ -101,7 +111,8 @@ public class Parameters {
 	}
 	
 	public Terminal getTerminal() {
-		return term.getTerminal();
+	    if(term != null) return term.getTerminal();
+	    return null;
 	}
 	
 	public CurrencyPreset getCurrencyPreset() {
