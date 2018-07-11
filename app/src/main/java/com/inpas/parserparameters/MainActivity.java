@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    private String logTag = "params";
+    public static String logTag = "params";
     private Map<File, Class<?>> map = new HashMap<File, Class<?>>();
     private void setFilesAndClass(){
         File rootDir = Environment.getExternalStorageDirectory();
@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         PossessorPreset possessor = Parameters.get().getPossessorsPreset();
         AcquiringPreset acquring = Parameters.get().getAcquiringPreset();
         ConnectionsServerPreset connections = Parameters.get().getConnectionsServerPreset();
-        Log.d(logTag,term.getAddress());
+        if(term != null){
+            Log.d(logTag,term.getAddress());
+        }
     }
 }
