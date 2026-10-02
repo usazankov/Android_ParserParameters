@@ -41,7 +41,7 @@
 
 `parameters/jsonschemes/` — JSON-схемы (jsonschema2pojo): пресеты и справочники (`CurrencyPreset`, `TerminalPreset`, `DefBinRange`, `DefSwitch` и др.).
 `parameters/TMS_Scheme/profile.xml` — схема TMS (`profile version="1.0.14.58" type="UNIPOS"`).
-`parameters/CM_Scheme/` — XSD-схема «Конфигуратора SA PSP для Android-терминалов» (Config Manager 2.1.1.97) и база данных Config Manager `PosDroid.mdb` (MS Access, 46 МБ). Файлы TMS_Scheme и CM_Scheme добавлены как справочные и в сборке не участвуют (gradle использует только `parameters/jsonschemes/*.json`).
+`parameters/CM_Scheme/` — XSD-схема «Конфигуратора SA PSP для Android-терминалов» (Config Manager 2.1.1.97). Файлы TMS_Scheme и CM_Scheme добавлены как справочные и в сборке не участвуют (gradle использует только `parameters/jsonschemes/*.json`).
 
 ## Сборка и тесты
 
